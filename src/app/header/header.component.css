@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* a {
+    text-decoration: none;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 940px;
+    width: 100%;
+} */
+
+/* Green Panel */
+
+header {
+    background-image: url("../../assets/img/header-bg.png");
+    height: 431px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.header-content__left h2 {
+    font-size: 38px;
+    width: 412px;
+    line-height: 44px;
+    color: white;
+    font-weight: 400;
+}
+
+.header-content__left p {
+    color: white;
+    font-size: 20px;
+    line-height: 26px;
+    width: 390px;
+    margin-top: 21px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.header-content__left-btn a:nth-child(1) {
+    background: black;
+    padding: 13px 23px;
+    color: white;
+    border-radius: 3px;
+    font-family: var(--RSR);
+    font-weight: 400;
+}
+
+.header-content__left-btn a:nth-child(2) {
+    color: black;
+    font-family: var(--RSR);
+}
+
+.header-content img{
+    width: 100%;
+}
+
+.header-content__left-btn {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+
+/* In Press Dark Green Panel */
+
+.in-the-press {
+    background: #3E5C50;
+}
+
+.in-the-press__content h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.31);
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+.in-the-press__content-bottom {
+    display: flex;
+    align-items: center;
+    gap: 37px;
+    justify-content: center;
+    margin-left: 25px;
+    padding-bottom: 30px;
+}
