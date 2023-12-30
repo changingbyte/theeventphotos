@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   }
 
   goDownToCustomer() {
-    this.router.navigate([], { fragment: "customer_id" });
+    this.scroller.scrollToAnchor("customer_id");
   }
   
 }
