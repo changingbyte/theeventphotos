@@ -12,6 +12,7 @@
     font-weight: 500;
 }
 
+
 .plans-pricing__content p {
     margin-bottom: 69px;
     font-size: 19px;
@@ -104,4 +105,127 @@
 .contact-us a {
     color: #489FD9;
     font-size: 15px;
+}
+
+
+@media (max-width: 900px) {
+
+    .pricing-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sync h2 {
+        font-size: 24px;
+    }
+
+    .sync p {
+        font-size: 17px;
+        text-align: center;
+        width: 800px;
+        margin-bottom: 30px;
+    }
+
+    .web-application {
+        flex-direction: column-reverse;
+        gap: 0px;
+    }
+
+    .web-application__content {
+        align-items: center;
+    }
+
+    .fa-laptop-code {
+        margin-top: 60px;
+    }
+
+    .mobile-app {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mobile-app__content fa-icon {
+        margin-top: 80px;
+    }
+
+    .mobile-app {
+        gap: 30px;
+    }
+
+    .methods {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .methods p {
+        width: 60%;
+        margin: auto;
+    }
+
+    .fa-table-columns {
+        margin-top: 70px;
+    }
+
+    .plans-pricing__content h2 {
+        font-size: 24px;
+    }
+
+    .plans-pricing__content p {
+        font-size: 16px;
+    }
+
+    .about-us h2 {
+        font-size: 24px;
+    }
+
+    .about-us p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .sync p {
+        width: 500px;
+    }
+
+    .about-us p {
+        width: 400px;
+        margin-top: 20px;
+    }
+
+    .mark-content img {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .web-application img {
+        width: 70%;
+    }
+
+    .sync p {
+        width: 300px;
+    }
+
+    .mobile-app__content p {
+        width: 300px;
+    }
+
+    .pricing-content{
+        gap: 50px;
+    }
+}
+
+@media (max-width: 330px) {
+    .mobile-app__content p{
+        width: 200px;
+    }
 }

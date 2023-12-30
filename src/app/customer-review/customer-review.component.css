@@ -26,3 +26,44 @@
 .about-us img {
     margin-bottom: 12px;
 }
+
+
+@media (max-width: 900px) {
+    .about-us h2 {
+        font-size: 24px;
+    }
+
+    .about-us p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .about-us p {
+        width: 400px;
+        margin-top: 20px;
+    }
+
+
+}
+
+@media (max-width: 540px) {
+    .about-us p {
+        width: 300px !important;
+    }
+
+
+}
+
+@media (max-width: 330px) {
+    .about-us h2 {
+        font-size: 20px;
+    }
+
+    .about-us p {
+        font-size: 15px;
+        width: 200px;
+    }
+
+}
