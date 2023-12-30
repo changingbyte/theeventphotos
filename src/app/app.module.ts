@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { FeaturesComponent } from './features/features.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PricesComponent } from './prices/prices.component';
+import { RegisterationComponent } from './registeration/registeration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { PricesComponent } from './prices/prices.component';
     NavbarComponent,
     HeaderComponent,
     FeaturesComponent,
-    PricesComponent
+    PricesComponent,
+    RegisterationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
