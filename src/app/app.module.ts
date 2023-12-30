@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { FeaturesComponent } from './features/features.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PricesComponent } from './prices/prices.component';
+import { RegisterationComponent } from './registeration/registeration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerReviewComponent } from './customer-review/customer-review.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -18,13 +20,15 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     FeaturesComponent,
     PricesComponent,
+    RegisterationComponent,
     CustomerReviewComponent,
     FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

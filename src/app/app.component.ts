@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { trigger } from '@angular/animations';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'FotoFiesta';
