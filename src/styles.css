@@ -8,6 +8,9 @@ a {
     max-width: 940px;
     width: 100%;
 }
+body {
+    overflow-x: hidden;
+  }  
 
 * {
     margin: 0;
@@ -17,7 +20,7 @@ a {
     list-style: none;
     font-family: var(--RR);
 }
-
+/* 
 @media (max-width: 1040px) {
     .header-content img {
         width: 40%;
@@ -319,4 +322,4 @@ a {
 @font-face {
     font-family: RobotoSlab-Regular;
     src: url(assets/fonts/RobotoSlab-Regular.ttf);
-}
+} */
