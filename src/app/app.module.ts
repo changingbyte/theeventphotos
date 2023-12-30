@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PricesComponent } from './prices/prices.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerReviewComponent } from './customer-review/customer-review.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FeaturesComponent,
     PricesComponent,
     RegisterationComponent,
+    CustomerReviewComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
