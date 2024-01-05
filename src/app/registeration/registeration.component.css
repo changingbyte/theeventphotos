@@ -37,6 +37,12 @@ span {
 	font-size: 12px;
 }
 
+.message, .error-message {
+	font-size: 14px;
+	color: red;
+	margin: 5px;
+}
+
 a {
 	color: #333;
 	font-size: 14px;

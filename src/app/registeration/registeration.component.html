@@ -20,23 +20,26 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form *ngIf="!showOTPField" (ngSubmit)="onSubmit()">
+            <form *ngIf="!showOTPField" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <h1>Log in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
-                <!-- <input type="email" id="email" name="email" [(ngModel)]="email" />
-                <input type="password" name="password" placeholder="Password" /> -->
-                <input type="tel" id="mobileNumber" name="mobileNumber" [(ngModel)]="mobileNumber" placeholder="Mobile Number" required />
-                <a href="#">Forgot your password?</a>
+                <span>login with your registered mobile number</span>
+                    <input type="tel" formControlName="mobileNumber" placeholder="Mobile Number" pattern="[0-9]{10}" required />
+                    <div *ngIf="loginForm.get('mobileNumber')?.invalid && (loginForm.get('mobileNumber')?.dirty || loginForm.get('mobileNumber')?.touched)">
+                      <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('required')">Mobile number is required.</div>
+                      <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('pattern')">Please enter a valid 10-digit mobile number.</div>
+                    </div>
+                <div *ngIf="message" class="error-message">{{ message }}</div>
                 <button type="submit">Request OTP</button>
             </form>
             <div *ngIf="showOTPField" class="otp-form form-container">
                 <form (ngSubmit)="onSubmit()">
                     <h4>Enter OTP</h4>
+                    <span>we have sent OTP on your registered mobile number</span>
                     <input type="text" id="otp" name="otp" [(ngModel)]="otp" required />
                     <button type="submit">Verify OTP</button>
                 </form>
@@ -60,8 +63,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div id="container" [class.right-panel-active]="isRightPanelActive">
-    <button id="signUp" (click)="onSignUpClick()">Sign Up</button>
-    <button id="signIn" (click)="onSignInClick()">Sign In</button>
-</div> -->

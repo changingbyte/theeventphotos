@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registeration',
@@ -10,13 +11,20 @@ import { AuthenticationService } from '../Services/auth.service';
 })
 export class RegisterationComponent {
 
-  constructor(private httpClient: HttpClient,private router: Router, private authservice: AuthenticationService) {}
+  loginForm: FormGroup;
+
+  constructor(private httpClient: HttpClient,private router: Router, private authservice: AuthenticationService, private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]]
+    });
+  }
   isRightPanelActive: boolean = false;
   // email: string = "";
   mobileNumber: string = '';
   otp: string = '';
   showOTPField: boolean = false;
   respnse_data: any;
+  message: string = ''
 
   ngShow(){
     // console.log(this.email)
@@ -25,9 +33,19 @@ export class RegisterationComponent {
 
   onSubmit() {
     // Handle the login submission here
-    console.log('Mobile Number:', this.mobileNumber);
+    const mobileNumberValue = this.loginForm.get('mobileNumber')?.value;
+    console.log('Mobile Number:', mobileNumberValue);
+    if (this.loginForm.valid) {
+      this.message = ""
+      console.log('Valid form submission');
+    } else {
+      // Handle invalid form submission or display error messages
+      this.message = "Invalid Phone Number"
+      console.log('Invalid form submission');
+      return;
+    }
     const data = {
-      "Mobile":this.mobileNumber,
+      "Mobile": mobileNumberValue,
       "appString":"checkdvn"
     }
     this.showOTPField=true;
@@ -45,7 +63,7 @@ export class RegisterationComponent {
               alert('congratulations')
               this.authservice.login();
               localStorage.setItem('authToken', this.respnse_data.auth_token);
-              localStorage.setItem('Mobile_Number', this.mobileNumber);
+              localStorage.setItem('Mobile_Number', mobileNumberValue);
               this.router.navigate(['admin/dashboard/event_list']); 
               }
           }
