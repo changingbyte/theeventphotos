@@ -22,6 +22,7 @@ import { ProgressBarPopupComponent } from './progress-bar-popup/progress-bar-pop
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {  MatCardModule} from '@angular/material/card';
+import { WhatsappShareButtonComponent } from './whatsapp-share-button/whatsapp-share-button.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {  MatCardModule} from '@angular/material/card';
     CreateEventComponent,
     UploadComponent,
     ProgressBarPopupComponent,
+    WhatsappShareButtonComponent,
   ],
   imports: [
     BrowserModule,

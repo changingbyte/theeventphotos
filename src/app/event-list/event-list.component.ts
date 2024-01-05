@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventListService } from '../Services/event-list.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-event-list',
@@ -12,29 +13,30 @@ export class EventListComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private httpClient: HttpClient, private eventListService: EventListService
-  ) {}
+    private httpClient: HttpClient, private eventListService: EventListService, private app_component: AppComponent
+  ) { }
 
   productId: any;
   image: any;
   image_list: any[] = [];
   tag_list: any[] = [];
- 
+
   // event: any;
   // event_list: any[] = [];
   listOfEvent: any[] = [];
   eventData: any;
   isLoading: boolean = true;
+  mobileNumber = localStorage.getItem('Mobile_Number');
 
   ngOnInit(): void {
     this.image_list = [];
     this.tag_list = [];
 
     this.route.params.subscribe((params) => {
-      
+
       this.productId = params['event_id'] || null; // Access the 'id' route parameter
       if (this.route.snapshot.url.length == 1) {
-        
+
         console.log("Event List Page");
         this.eventListService.eventList();
         this.isLoading = false;
@@ -50,29 +52,6 @@ export class EventListComponent {
     });
   }
 
-  // eventList() {
-  //   const requestOptions = GetHeaders();
-  //   this.httpClient
-  //     .get(
-  //       'https://helpful-range-403908.el.r.appspot.com/getHastagList/',
-  //       requestOptions
-  //     )
-  //     .subscribe(
-  //       (response) => {
-  //         if (response) {
-  //           this.event = response;
-  //           this.event_list = this.event.data;
-  //           this.isLoading = false;
-  //           // console.log(this.event_list)
-  //           // console.log(response)
-  //         }
-  //         // Handle the server's response
-  //       },
-  //       (error) => {
-  //         // Handle any errors
-  //       }
-  //     );
-  // }
 
   downloadFiles(event_name: string) {
     const data = { folder_name: event_name, user_id: '8000802034' };
@@ -121,8 +100,19 @@ export class EventListComponent {
       return `${months} month${months > 1 ? 's' : ''} ago`;
     }
   }
+  getMessageLink() {
 
-  
+    return (
+      'Please *Click On the below link to access your ' +
+      this.productId +
+      '*  \n https://helpful-range-403908.el.r.appspot.com/users/create-user-and-grant-permission/?APP_NAME=' +
+      this.app_component.APP_NAME +
+      '&event_name=' +
+      this.productId +
+      '&permission=view   \n *Enter Mobile Number* \n AND  *Download The App*'
+    );
+  }
+
 }
 
 function GetHeaders() {
