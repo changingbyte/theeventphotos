@@ -20,8 +20,10 @@ export class EventListComponent {
   image_list: any[] = [];
   tag_list: any[] = [];
  
-  event: any;
-  event_list: any[] = [];
+  // event: any;
+  // event_list: any[] = [];
+  listOfEvent: any[] = [];
+  eventData: any;
   isLoading: boolean = true;
 
   ngOnInit(): void {
@@ -34,36 +36,43 @@ export class EventListComponent {
       if (this.route.snapshot.url.length == 1) {
         
         console.log("Event List Page");
-        this.eventList();
+        this.eventListService.eventList();
+        this.isLoading = false;
+        this.eventListService.eventList$.subscribe((eventList) => {
+          this.listOfEvent = eventList;
+        });
+        this.eventListService.event$.subscribe((event) => {
+          this.eventData = event;
+        });
       } else {
         this.downloadFiles(this.productId);
       }
     });
   }
 
-  eventList() {
-    const requestOptions = GetHeaders();
-    this.httpClient
-      .get(
-        'https://helpful-range-403908.el.r.appspot.com/getHastagList/',
-        requestOptions
-      )
-      .subscribe(
-        (response) => {
-          if (response) {
-            this.event = response;
-            this.event_list = this.event.data;
-            this.isLoading = false;
-            // console.log(this.event_list)
-            // console.log(response)
-          }
-          // Handle the server's response
-        },
-        (error) => {
-          // Handle any errors
-        }
-      );
-  }
+  // eventList() {
+  //   const requestOptions = GetHeaders();
+  //   this.httpClient
+  //     .get(
+  //       'https://helpful-range-403908.el.r.appspot.com/getHastagList/',
+  //       requestOptions
+  //     )
+  //     .subscribe(
+  //       (response) => {
+  //         if (response) {
+  //           this.event = response;
+  //           this.event_list = this.event.data;
+  //           this.isLoading = false;
+  //           // console.log(this.event_list)
+  //           // console.log(response)
+  //         }
+  //         // Handle the server's response
+  //       },
+  //       (error) => {
+  //         // Handle any errors
+  //       }
+  //     );
+  // }
 
   downloadFiles(event_name: string) {
     const data = { folder_name: event_name, user_id: '8000802034' };

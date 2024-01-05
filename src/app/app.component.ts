@@ -1,5 +1,4 @@
-import { trigger } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from './Services/auth.service';
 // import { AuthenticationService } from 'auth.service';
 

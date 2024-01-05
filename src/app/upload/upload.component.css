@@ -13,3 +13,41 @@ label {
 input#file { 
     margin: 10px 0px 10px 0px
 }
+
+/* Dorpdown css */
+
+.custom-dropdown {
+    position: relative;
+  }
+  
+  .select-arrow {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .select-arrow select {
+    width: calc(100% - 20px); /* Adjust the width as needed */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 16px;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: calc(50% - 5px); /* Adjust vertical position */
+    right: 5px; /* Adjust horizontal position */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000; /* Change color if needed */
+    pointer-events: none;
+  }
+  

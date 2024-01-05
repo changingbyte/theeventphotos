@@ -14,9 +14,9 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3" *ngIf="event">
+  <div class="row mt-3" *ngIf="eventData">
     <h1>Event List</h1>
-    <table class="table mb-0 bg-white" *ngIf="event_list">
+    <table class="table mb-0 bg-white" *ngIf="listOfEvent">
       <thead class="bg-light">
         <tr>
           <th class="px-10 align-top">EventId</th>
@@ -27,7 +27,7 @@
           <th class="px-10 align-top">Published</th>
         </tr>
       </thead>
-      <tbody *ngFor="let e of event_list">
+      <tbody *ngFor="let e of listOfEvent">
         <tr>
           <td class="px-10 align-middle">
             <div class="d-flex align-items-start">

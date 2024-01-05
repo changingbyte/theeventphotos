@@ -3,7 +3,8 @@ import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ProgressBarPopupComponent } from '../progress-bar-popup/progress-bar-popup.component';
-import { EventListComponent } from '../event-list/event-list.component';
+import { EventListService } from '../Services/event-list.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -11,7 +12,17 @@ import { EventListComponent } from '../event-list/event-list.component';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent {
-  constructor(private httpClient: HttpClient , private dialog: MatDialog, private app_component: AppComponent) { }
+  listOfEvent: any[] = [];
+  constructor(private route: ActivatedRoute,private httpClient: HttpClient , private dialog: MatDialog, private app_component: AppComponent, private eventService: EventListService) {
+    eventService.eventList()
+  }
+
+  ngOnInit(): void {
+    this.eventService.eventList$.subscribe((eventList) => {
+      this.listOfEvent = eventList;
+    });
+  }
+
   uploadProgress: number = 0;
   selectedFiles: File[] = [];
   title = 'photo-uploader';
