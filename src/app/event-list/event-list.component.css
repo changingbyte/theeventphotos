@@ -7,7 +7,14 @@
     width: auto;
     box-sizing: border-box;
   }
+
+  .img-fluid {
+    height: 220px !important;
+  }
    
+  .card-body {
+    height: 250px !important;
+}
   
   .card-content {
     padding: 10px;

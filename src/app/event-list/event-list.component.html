@@ -101,7 +101,10 @@
             <!-- Image Section -->
             <div class="col-3">
               <!-- Image placeholder for testing -->
-              <img src="https://via.placeholder.com/150" alt="Event Image" class="img-fluid" />
+              <!-- <img [src]="e.image.image_url || 'src/assets/img/whatsapp-logo.png'" alt="Event Image" class="img-fluid" /> -->
+              <img *ngIf="e.image && e.image.image_url" [src]="e.image.image_url" alt="Event Image" class="img-fluid" />
+              <img *ngIf="!e.image || !e.image.image_url" src="../../assets/img/whatsapp-logo.png" alt="Default Image"
+                class="img-fluid"/>
             </div>
 
             <!-- Details Section -->
