@@ -20,7 +20,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form method="POST" action="">
+            <form *ngIf="!showOTPField" (ngSubmit)="onSubmit()">
                 <h1>Log in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -28,11 +28,19 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
+                <!-- <input type="email" id="email" name="email" [(ngModel)]="email" />
+                <input type="password" name="password" placeholder="Password" /> -->
+                <input type="tel" id="mobileNumber" name="mobileNumber" [(ngModel)]="mobileNumber" placeholder="Mobile Number" required />
                 <a href="#">Forgot your password?</a>
-                <button>Log in</button>
+                <button type="submit">Request OTP</button>
             </form>
+            <div *ngIf="showOTPField" class="otp-form form-container">
+                <form (ngSubmit)="onSubmit()">
+                    <h4>Enter OTP</h4>
+                    <input type="text" id="otp" name="otp" [(ngModel)]="otp" required />
+                    <button type="submit">Verify OTP</button>
+                </form>
+            </div>
         </div>
         <div class="overlay-container">
             <div class="overlay">

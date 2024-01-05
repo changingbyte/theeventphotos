@@ -1,5 +1,6 @@
-import { trigger } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthenticationService } from './Services/auth.service';
+// import { AuthenticationService } from 'auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,9 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  constructor (public authSevice: AuthenticationService){}
+
   title = 'FotoFiesta';
+  APP_NAME = 'PHOTOPHACTORYSTUDIOS'
 }

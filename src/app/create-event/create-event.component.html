@@ -1,0 +1,36 @@
+<!-- <p>create-event works!</p> -->
+
+<app-dashboard></app-dashboard>
+<div class="container">
+  <div class="row mt-3" *ngIf="create_event">
+    <div class="row mt-3" *ngIf="create_event_success">
+      <div class="col-md-6 text-center">
+        <h1 class="text-success">Event Created Successfully</h1>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>Create Event</h2>
+      <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="eventName" class="form-label">Event Name</label>
+          <input type="text" id="eventName" formControlName="eventName" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="eventDate" class="form-label">Event Date</label>
+          <input type="date" id="eventDate" formControlName="eventDate" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="eventLocation" class="form-label">Event Location</label>
+          <input type="text" id="eventLocation" formControlName="eventLocation" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="eventHashtag" class="form-label">Event Hashtag</label>
+          <input type="text" id="eventHashtag" formControlName="eventHashtag" class="form-control" />
+        </div>
+        <button type="submit" [disabled]="!eventForm.valid" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

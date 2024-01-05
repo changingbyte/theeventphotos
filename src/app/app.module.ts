@@ -12,6 +12,16 @@ import { RegisterationComponent } from './registeration/registeration.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerReviewComponent } from './customer-review/customer-review.component';
 import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EventListComponent } from './event-list/event-list.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { UploadComponent } from './upload/upload.component';
+import { ProgressBarPopupComponent } from './progress-bar-popup/progress-bar-popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {  MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,13 +32,24 @@ import { FooterComponent } from './footer/footer.component';
     PricesComponent,
     RegisterationComponent,
     CustomerReviewComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent,
+    EventListComponent,
+    CreateEventComponent,
+    UploadComponent,
+    ProgressBarPopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

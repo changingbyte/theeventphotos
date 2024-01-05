@@ -1,0 +1,19 @@
+/* ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll{
+    padding-left: 50px;
+} */
+
+nav.navbar.navbar-expand-lg.dashboard {
+    background-color: #b8fbd0;
+    height: 75px;
+}
+
+/* #b2fae6 */
+
+button.btn.btn-outline-primary {
+    margin-right: 20px ;
+}
+
+h2#h2-dashboard {
+    font-size: 35px;
+    margin: 0px;
+}
