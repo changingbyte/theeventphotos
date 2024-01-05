@@ -1,4 +1,4 @@
-<div class="container navbar-content">
+<!-- <div class="container navbar-content">
     <nav class="navbar navbar-expand-lg bg-white">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/">{{title}}</a>
@@ -32,24 +32,74 @@
         </div>
     </div>
     </nav>
+</div> -->
+
+<div *ngIf="!isAuthenticated">
+    <div class="container navbar-content">
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand">{{title}}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToFeature()">
+                                Features
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToPricing()">
+                                Pricing
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToCustomer()">
+                                Customers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link nav-content__list-link">
+                                Sign Up
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <app-header></app-header>
+    <app-features></app-features>
+    <app-prices></app-prices>
+    <app-customer-review></app-customer-review>
+    <app-footer></app-footer>
 </div>
-
-
-
-<!-- <div> -->
-  <!-- Green Header -->
-  <app-header></app-header>
-
-  <!-- Features -->
-  <app-features></app-features>
-
-  <!-- Prices -->
-  <app-prices></app-prices>
-
-  <!-- cutomer review -->
-  <app-customer-review></app-customer-review>
-
-  <!-- Footer -->
-  <app-footer></app-footer>
-<!-- </div> -->
-<!-- <router-outlet></router-outlet> -->
+<div class="container navbar-content" *ngIf="isAuthenticated">
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand">{{title}}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-content__list-link" (click)="goDownToPricing()">
+                            Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/" class="nav-link nav-content__list-link" (click)="logout()">
+                            <fa-icon class="fa-regular fa-user" [icon]="faUser"></fa-icon> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

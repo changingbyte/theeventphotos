@@ -1,0 +1,46 @@
+<!-- <p>upload works!</p> -->
+
+<app-dashboard></app-dashboard>
+
+<div class="container">
+    <form (ngSubmit)="uploadFiles()">
+      <div class="form-group">
+        <label for="appName">App Name</label>
+        <input type="text" id="appName" name="appName" placeholder="App Name" value="{{ appname }}" readonly="true" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="eventId">Event ID</label>
+        <input type="text" id="eventId" name="eventId" [(ngModel)]="event_id" placeholder="Event ID" required="true" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="tag">Tag</label>
+        <input type="text" id="tag" name="tag" [(ngModel)]="tag" placeholder="Tag" required="true" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="file">Select Files</label> <br>
+        <input type="file" id="file" (change)="onFileSelected($event)" multiple class="form-control-file" />
+      </div>     
+      
+      <button type="submit" class="btn btn-primary">Upload</button>
+      
+      <div class="file-preview mt-3" *ngFor="let file of selectedFiles; let i = index">
+        <ng-container *ngIf="file.type.includes('image'); else fileIcon">
+          <img src="" alt="Preview" />
+        </ng-container>
+        <ng-template #fileIcon>
+          <i class="fa fa-file-o"></i>
+        </ng-template>
+        <div class="file-info">
+          <p>{{ file.name }}</p>
+          <p>{{ formatBytes(file.size) }}</p>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+      </div>
+    </form>
+
+    <!-- <div *ngFor="let e of list">
+      <ul>
+        <li><a class="1" href="#">{{ e.event_id }}</a></li>
+      </ul>
+    </div> -->
+  </div>

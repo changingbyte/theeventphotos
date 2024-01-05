@@ -1,0 +1,15 @@
+form {
+    margin: 30px 0px 30px 0px
+}
+
+.form-group {
+    margin: 20px 0px 20px 0px
+}
+
+label { 
+    margin: 0px 0px 5px 0px
+}
+
+input#file { 
+    margin: 10px 0px 10px 0px
+}
