@@ -47,12 +47,6 @@ export class EventListService {
         }
       );
   }
-
-  // get getEventList() {
-  //   console.log(this.event_list);
-  //   return this.event_list;
-  // }
-
   
 }
 

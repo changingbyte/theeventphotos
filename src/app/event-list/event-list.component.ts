@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventListService } from '../Services/event-list.service';
 import { AppComponent } from '../app.component';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-event-list',
@@ -10,9 +11,9 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent {
-
+  faUsers = faUsers
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute, private router: Router,
     private httpClient: HttpClient, private eventListService: EventListService, private app_component: AppComponent
   ) { }
 
@@ -100,8 +101,8 @@ export class EventListComponent {
       return `${months} month${months > 1 ? 's' : ''} ago`;
     }
   }
-  getMessageLink() {
 
+  getMessageLink() {
     return (
       'Please *Click On the below link to access your ' +
       this.productId +
@@ -111,6 +112,10 @@ export class EventListComponent {
       this.productId +
       '&permission=view   \n *Enter Mobile Number* \n AND  *Download The App*'
     );
+  }
+
+  navigateToUsersEventList() {
+    this.router.navigate(['/admin/dashboard/event_list/' + this.productId + '/user_event_registered'])
   }
 
 }
