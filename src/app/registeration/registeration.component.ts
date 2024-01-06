@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -13,7 +12,7 @@ export class RegisterationComponent {
 
   loginForm: FormGroup;
 
-  constructor(private httpClient: HttpClient,private router: Router, private authservice: AuthenticationService, private formBuilder: FormBuilder) {
+  constructor(private httpClient: HttpClient,private router: Router, private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]]
     });
@@ -61,7 +60,6 @@ export class RegisterationComponent {
               if (this.otp == this.respnse_data.otp)
               {
               alert('congratulations')
-              this.authservice.login();
               localStorage.setItem('authToken', this.respnse_data.auth_token);
               localStorage.setItem('Mobile_Number', mobileNumberValue);
               this.router.navigate(['admin/dashboard/event_list']); 

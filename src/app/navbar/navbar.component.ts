@@ -2,8 +2,6 @@ import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit, VERSION } from '@angular/core';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { AuthGuard } from '../auth.guard';
-import { AuthenticationService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,14 +13,14 @@ export class NavbarComponent implements OnInit {
 
   name = "Angular " + VERSION.major;
 
-  constructor(private scroller: ViewportScroller, private router: Router, public authService: AuthenticationService, public authguard: AuthGuard) {}
+  constructor(private scroller: ViewportScroller, private router: Router) { }
   ngOnInit() {
-    if (localStorage.getItem('authToken')){
+    if (localStorage.getItem('authToken')) {
       this.isAuthenticated = true;
     }
     // this.router.navigate(["/"]);
   }
-  
+
   title = 'FotoFiesta';
 
   goDownToFeature() {
@@ -47,35 +45,18 @@ export class NavbarComponent implements OnInit {
     this.scroller.scrollToAnchor("customer_id");
   }
 
-  // onLoginClick() {
-  //   this.authService.login();
-  // }
-
-  // onLogoutClick() {
-  //   this.authService.logout();
-  // }
-
   isAuthenticated: boolean = false;
 
-
-  // ngOnInit(): void {
-  //   if (localStorage.getItem('authToken'))
-  //   this.isAuthenticated = true;
-  // }
-
-
   login() {
-    // Simulate a login action or set isAuthenticated to true
-    if (localStorage.getItem('authToken'))
-    this.isAuthenticated = true;
+    if (localStorage.getItem('authToken')) {
+      this.isAuthenticated = true;
+    }
   }
 
   logout() {
-    // Simulate a logout action or set isAuthenticated to false
     this.isAuthenticated = false;
     localStorage.removeItem('authToken');
     this.router.navigate(['/']);
-
   }
-  
+
 }

@@ -10,23 +10,27 @@ import { EventListComponent } from './event-list/event-list.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { UploadComponent } from './upload/upload.component';
 import { UserEventRegisteredComponent } from './user-event-registered/user-event-registered.component';
+import { PricesComponent } from './prices/prices.component';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent },
   { path: 'register', component: RegisterationComponent },
-  { path: 'admin', canActivate: [AuthGuard], 
+  {
+    path: 'admin', canActivate: [AuthGuard],
     children: [
-        // { path: 'dashboard', component: DashboardComponent },
-        { path: 'dashboard',  children: [
-            { path: 'event_list', component: EventListComponent},
-            { path: 'event_list/:event_id', component: EventListComponent},
-            { path: 'event_list/:event_id/user_event_registered', component: UserEventRegisteredComponent},
-            { path: 'create_event', component: CreateEventComponent},
-            { path: 'upload_image', component: UploadComponent},
-          ]
-        }
-      ],
-  } 
+      // { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard', children: [
+          { path: 'event_list', component: EventListComponent },
+          { path: 'pricing', component: PricesComponent },
+          { path: 'event_list/:event_id', component: EventListComponent },
+          { path: 'event_list/:event_id/user_event_registered', component: UserEventRegisteredComponent },
+          { path: 'create_event', component: CreateEventComponent },
+          { path: 'upload_image', component: UploadComponent },
+        ]
+      }
+    ],
+  }
 ];
 
 @NgModule({
@@ -34,11 +38,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-// {
-//   path: 'admin',
-//   canActivate: [AuthGuard], // Apply the AuthGuard to this route
-//   children: [
-//     { path: 'dashboard', component: DashboardComponent },
-//   ],
-// },
