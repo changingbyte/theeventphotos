@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {  MatCardModule} from '@angular/material/card';
 import { WhatsappShareButtonComponent } from './whatsapp-share-button/whatsapp-share-button.component';
+import { UserEventRegisteredComponent } from './user-event-registered/user-event-registered.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { WhatsappShareButtonComponent } from './whatsapp-share-button/whatsapp-s
     UploadComponent,
     ProgressBarPopupComponent,
     WhatsappShareButtonComponent,
+    UserEventRegisteredComponent,
   ],
   imports: [
     BrowserModule,

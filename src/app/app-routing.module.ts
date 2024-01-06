@@ -9,6 +9,7 @@ import { AuthGuard } from './auth.guard';
 import { EventListComponent } from './event-list/event-list.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { UploadComponent } from './upload/upload.component';
+import { UserEventRegisteredComponent } from './user-event-registered/user-event-registered.component';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
         { path: 'dashboard',  children: [
             { path: 'event_list', component: EventListComponent},
             { path: 'event_list/:event_id', component: EventListComponent},
+            { path: 'event_list/:event_id/user_event_registered', component: UserEventRegisteredComponent},
             { path: 'create_event', component: CreateEventComponent},
             { path: 'upload_image', component: UploadComponent},
           ]
