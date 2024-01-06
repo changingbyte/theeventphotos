@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from './Services/auth.service';
-// import { AuthenticationService } from 'auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +7,7 @@ import { AuthenticationService } from './Services/auth.service';
 })
 export class AppComponent {
 
-  constructor (public authSevice: AuthenticationService){}
+  constructor (){}
 
   title = 'FotoFiesta';
   APP_NAME = 'PHOTOPHACTORYSTUDIOS'

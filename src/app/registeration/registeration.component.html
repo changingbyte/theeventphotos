@@ -28,11 +28,15 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>login with your registered mobile number</span>
-                    <input type="tel" formControlName="mobileNumber" placeholder="Mobile Number" pattern="[0-9]{10}" required />
-                    <div *ngIf="loginForm.get('mobileNumber')?.invalid && (loginForm.get('mobileNumber')?.dirty || loginForm.get('mobileNumber')?.touched)">
-                      <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('required')">Mobile number is required.</div>
-                      <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('pattern')">Please enter a valid 10-digit mobile number.</div>
-                    </div>
+                <input type="tel" formControlName="mobileNumber" placeholder="Mobile Number" pattern="[0-9]{10}"
+                    required />
+                <div
+                    *ngIf="loginForm.get('mobileNumber')?.invalid && (loginForm.get('mobileNumber')?.dirty || loginForm.get('mobileNumber')?.touched)">
+                    <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('required')">Mobile number is
+                        required.</div>
+                    <div class="message" *ngIf="loginForm.get('mobileNumber')?.hasError('pattern')">Please enter a valid
+                        10-digit mobile number.</div>
+                </div>
                 <div *ngIf="message" class="error-message">{{ message }}</div>
                 <button type="submit">Request OTP</button>
             </form>
@@ -51,13 +55,11 @@
                     <h1>Have an account?</h1>
                     <p>To keep connected with us please login with your personal info</p>
                     <button class="ghost" id="signIn" (click)="onSignInClick()">Log in</button>
-                    <!-- <button class="ghost" id="signIn">Log in</button> -->
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Don't have an account?</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <button class="ghost" id="signUp" (click)="onSignUpClick()">Register</button>
-                    <!-- <button class="ghost" id="signUp">Register</button> -->
                 </div>
             </div>
         </div>

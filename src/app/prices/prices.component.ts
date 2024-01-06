@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-prices',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./prices.component.css']
 })
 export class PricesComponent {
+  constructor(private authService: AuthenticationService) {
+
+  }
+
+  isAuthenticated = this.authService.isLoggedIn;
 
 }

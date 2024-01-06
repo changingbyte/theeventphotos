@@ -1,44 +1,8 @@
-<!-- <div class="container navbar-content">
-    <nav class="navbar navbar-expand-lg bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/">{{title}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active nav-content__list-link" aria-current="page" (click)="goDownToFeature()">
-                        Features
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link nav-content__list-link" (click)="goDownToPricing()">
-                        Pricing
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link nav-content__list-link" (click)="goDownToCustomer()">
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/register" class="nav-link nav-content__list-link">
-                        Sign Up
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    </nav>
-</div> -->
-
 <div *ngIf="!isAuthenticated">
     <div class="container navbar-content">
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
-                <a class="navbar-brand">{{title}}</a>
+                <a routerLink="/" class="navbar-brand">{{title}}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +44,7 @@
 <div class="container navbar-content" *ngIf="isAuthenticated">
     <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand">{{title}}</a>
+            <a routerLink="/admin/dashboard/event_list" class="navbar-brand">{{title}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -89,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-content__list-link" (click)="goDownToPricing()">
+                        <a href="#" class="nav-link nav-content__list-link" routerLink="/admin/dashboard/pricing">
                             Pricing
                         </a>
                     </li>
