@@ -6,11 +6,15 @@
 
 <div class="container">
   <div class="row mt-2" *ngIf="image">
+    <!-- <button (click)="printImageList()">printImageList</button> -->
     <div class="col-md-8">
       <div class="tags-container d-flex align-items-center justify-content-start">
-        <a *ngFor="let tag of tag_list" class="tag-card-button mx-2">{{
+        <div *ngFor="let tag of tag_list">
+          <button class="btn btn-outline-primary ms-2" (click)="filterWithTag(tag)">{{tag}}</button>
+        </div> 
+        <!-- <a *ngFor="let tag of tag_list" class="tag-card-button mx-2">{{
           tag
-          }}</a>
+          }}</a> -->
       </div>
     </div>
     <div class="col-md-2">
@@ -23,7 +27,7 @@
     </div>
   </div>
   <div class="row mt-3" *ngIf="image_list">
-    <div *ngFor="let e of image_list" class="col-md-3">
+    <div *ngFor="let e of filtered_images" class="col-md-3">
       <div class="card image-card mb-3">
         <a href="{{ e.image_url }}">
           <img src="{{ e.image_url }}" alt="Event Image" class="card-img" />

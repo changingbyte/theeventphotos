@@ -17,22 +17,22 @@
     margin-bottom: 69px;
     font-size: 19px;
     text-align: center;
-    color: #333333;
+    color: black;
 }
 
 .pricing-box {
     display: flex;
     flex-direction: column;
-    width: 220px;
+    width: 250px;
     background: white;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 17px;
     gap: 15px;
 }
 
 .pricing-box h3 {
     font-size: 22px;
-    color: #CCCCCC;
+    color: black;
     font-weight: 500;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .pricing-box__span span:nth-child(2) {
-    color: #C7C5C5;
+    color: black;
     font-size: 14px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .pricing-box__span-bottom span {
-    color: #C7C5C5;
+    color:black;
     font-size: 14px;
 }
 
@@ -87,7 +87,7 @@
 
 .pricing-content {
     display: flex;
-    gap: 20px;
+    gap: 100px;
 }
 
 .contact-us {

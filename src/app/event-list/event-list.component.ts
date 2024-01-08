@@ -11,6 +11,12 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent {
+  filterWithTag(tag: string): void {
+    console.log('Selected Tag:', tag);
+    // Add your logic to filter with the selected tag
+    this.filtered_images = this.image_list.filter(image => image.tag === tag);
+  }
+
   faUsers = faUsers
   constructor(
     private route: ActivatedRoute, private router: Router,
@@ -21,9 +27,8 @@ export class EventListComponent {
   image: any;
   image_list: any[] = [];
   tag_list: any[] = [];
+  filtered_images: any[] = [];
 
-  // event: any;
-  // event_list: any[] = [];
   listOfEvent: any[] = [];
   eventData: any;
   isLoading: boolean = true;
@@ -71,6 +76,8 @@ export class EventListComponent {
             this.image_list = this.image.data;
             this.tag_list = this.image.tags_list;
             this.isLoading = false;
+            this.filtered_images = [...this.image_list];
+            
           }
           // Handle the server's response
         },
