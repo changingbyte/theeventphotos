@@ -26,7 +26,7 @@
 						<tr *ngFor="let e of registeredUsers">
 							<td>
 								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-								<a href="#" class="user-link">Mila Kunis</a>
+								<a href="#" class="user-link">{{e.user_name}}</a>
 								<span class="user-subhead">Admin</span>
 							</td>
 							<td>
@@ -36,7 +36,7 @@
 								<span class="label label-default">Inactive</span>
 							</td>
 							<td>
-								<a href="#">{{ e }}</a>
+								<a href="#">{{ e.user_id }}</a>
 							</td>
 							<td style="width: 20%;">
 								<a href="#" class="table-link">

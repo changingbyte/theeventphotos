@@ -118,7 +118,7 @@ export class UploadComponent {
     formData.append('app', this.appname);
     await this.delay(500)
     console.log(formData)
-    this.httpClient.post('https://helpful-range-403908.el.r.appspot.com/bulkupload/', formData).subscribe(
+    this.httpClient.post(this.app_component.base_url+'bulkupload/', formData).subscribe(
       (response) => {
         if (response) {
           if(index > this.file_uploaded)

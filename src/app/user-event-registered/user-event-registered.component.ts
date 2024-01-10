@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { EventListService } from '../Services/event-list.service';
 import { ActivatedRoute, Route } from '@angular/router';
 import { faSearchPlus, faPencil, faTrash, faSquare, fa2, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class UserEventRegisteredComponent {
   register_user:any
   registeredUsers: any[] = [];
   productId: any;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute,private appComponent:AppComponent) {
 
   }
 
@@ -42,17 +43,18 @@ export class UserEventRegisteredComponent {
     const requestOptions = GetHeaders()
     this.httpClient
       .get(
-        'https://helpful-range-403908.el.r.appspot.com/user-list/'+event_id+"/",
+        this.appComponent.base_url+'user-list/'+event_id+"/",
         requestOptions
       )
       .subscribe(
         (response) => {
           if (response) {
             this.register_user = response;
-            // this.registeredUsers = this.register_user.data;
-            this.register_user.data.forEach((element: { user_id: any; }) => {
-              this.registeredUsers.push(element.user_id)
-            });
+
+            this.registeredUsers = this.register_user.data;
+            // this.register_user.data.forEach((element: { user_id: any; }) => {
+            //   this.registeredUsers.push(element.user_id)
+            // });
             console.log(this.registeredUsers)
             
             

@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppComponent } from '../app.component';
+import { UsersDataService } from '../Services/users-data.service';
 
 @Component({
   selector: 'app-registeration',
@@ -10,11 +12,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterationComponent {
 
-  loginForm: FormGroup;
 
-  constructor(private httpClient: HttpClient,private router: Router, private formBuilder: FormBuilder) {
+  loginForm: FormGroup;
+  registrationForm: FormGroup
+
+  constructor(private httpClient: HttpClient, private router: Router, private formBuilder: FormBuilder, private appComponent: AppComponent, private userDataService : UsersDataService) {
     this.loginForm = this.formBuilder.group({
       mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]]
+    });
+    this.registrationForm = this.formBuilder.group({
+      mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      email: ['', [Validators.required, Validators.email]],
+      userName: ['', Validators.required]
     });
   }
   isRightPanelActive: boolean = false;
@@ -22,15 +31,61 @@ export class RegisterationComponent {
   mobileNumber: string = '';
   otp: string = '';
   showOTPField: boolean = false;
-  respnse_data: any;
+  response_data: any;
   message: string = ''
 
-  ngShow(){
-    // console.log(this.email)
-    console.log(this.mobileNumber)
+  onRegistration() {
+    // Handle the registration submission here
+    const mobileNumberValue = this.loginForm.get('mobileNumber')?.value;
+
+    const data = {
+      "Mobile": this.registrationForm.get('mobileNumber')?.value,
+      "appString": "checkdvn",
+      "userName": this.registrationForm.get('userName')?.value,
+      "email": this.registrationForm.get('email')?.value,
+    }
+    console.log(data)
+    this.showOTPField = true;
+    this.httpClient.post(this.appComponent.base_url + 'users/register_user', data).subscribe(
+      (response) => {
+        if (response) {
+          this.response_data = response;
+        }
+        // Handle the server's response
+
+      },
+      (error: HttpErrorResponse) => {
+        // Handle the error case here
+        if (error.status === 409) {
+          console.log('User already exist');
+          alert(" User already exist Please Login")
+          this.showOTPField = false;
+          this.onSignInClick();
+          // Handle the case where the user is not found
+        } else {
+          // Handle other errors
+          console.error('Unexpected error:', error);
+        }
+      }
+    );
   }
 
-  onSubmit() {
+  checkOtp() {
+    console.log(" response data : ", this.response_data)
+    if (this.otp && this.otp != '') {
+      if (this.otp == this.response_data.otp) {
+        this.userDataService.setUserData = this.response_data;
+        alert('congratulations');
+        localStorage.setItem('authToken', this.response_data.auth_token);
+        localStorage.setItem('Mobile_Number', this.response_data.mobile);
+        this.router.navigate(['admin/dashboard/event_list']);
+      } else {
+        alert('please enter correct otp');
+      }
+    }
+  }
+
+  onLogin() {
     // Handle the login submission here
     const mobileNumberValue = this.loginForm.get('mobileNumber')?.value;
     console.log('Mobile Number:', mobileNumberValue);
@@ -45,36 +100,33 @@ export class RegisterationComponent {
     }
     const data = {
       "Mobile": mobileNumberValue,
-      "appString":"checkdvn"
+      "appString": "checkdvn"
     }
-    this.showOTPField=true;
-    this.httpClient.post('https://helpful-range-403908.el.r.appspot.com/users/mobile_number_check',data).subscribe(
+    console.log(data)
+    this.showOTPField = true;
+    this.httpClient.post(this.appComponent.base_url + 'users/mobile_number_check', data).subscribe(
       (response) => {
-        if(response){
-          
-          if(this.otp && this.otp!='')
-          {
-           
-              this.respnse_data = response;
-              console.log(this.respnse_data.data)
-              if (this.otp == this.respnse_data.otp)
-              {
-              alert('congratulations')
-              localStorage.setItem('authToken', this.respnse_data.auth_token);
-              localStorage.setItem('Mobile_Number', mobileNumberValue);
-              this.router.navigate(['admin/dashboard/event_list']); 
-              }
-          }
-          
+        if (response) {
+          this.response_data = response;
         }
         // Handle the server's response
-        
+
       },
-      (error) => {
-        // Handle any errors
+      (error: HttpErrorResponse) => {
+        // Handle the error case here
+        console.log(error)
+        if (error.status === 404) {
+          console.log('User not found');
+          alert("User not registered")
+          this.onSignUpClick()
+          this.showOTPField = false;
+          // Handle the case where the user is not found
+        } else {
+          // Handle other errors
+          console.error('Unexpected error:', error);
+        }
       }
     );
-    
     // Add your authentication logic here
   }
 
@@ -85,5 +137,4 @@ export class RegisterationComponent {
   onSignInClick() {
     this.isRightPanelActive = false;
   }
-
 }

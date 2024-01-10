@@ -10,5 +10,6 @@ export class AppComponent {
   constructor (){}
 
   title = 'FotoFiesta';
-  APP_NAME = 'PHOTOPHACTORYSTUDIOS'
+  APP_NAME = 'PHOTOPHACTORYSTUDIOS';
+  base_url = 'http://localhost:8000/'
 }

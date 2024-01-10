@@ -24,44 +24,44 @@ export class PricesComponent {
   // subscription: [];
   ngOnInit(): void {
     // this.subscription=[]
-    this.getActiveSubscriptionDetail()
+    // this.getActiveSubscriptionDetail()
     this.getSubscriptionDetail()
   }
-  getActiveSubscriptionDetail() {
-    // Handle the login submission here
-    const mobileNumberValue = localStorage.getItem('Mobile_Number')
-    console.log('Mobile Number:', mobileNumberValue);
+  // getActiveSubscriptionDetail() {
+  //   // Handle the login submission here
+  //   const mobileNumberValue = localStorage.getItem('Mobile_Number')
+  //   console.log('Mobile Number:', mobileNumberValue);
 
-    const data = {
-      "Mobile": mobileNumberValue,
-      "appString": "checkdvn"
-    }
-    this.httpClient.post('https://helpful-range-403908.el.r.appspot.com/users/mobile_number_check', data).subscribe(
-      (response) => {
-        if (response) {
-          this.response_data = response;
-          console.log(this.response_data)
-          this.subscription= this.response_data.subscription || []
-          // console.log(this.subscription)
-          console.log('Type of subscription:', typeof this.subscription);
-          // this.subscription.push(this.response_data.subscription);
-          // this.subscription = response.subscription;
+  //   const data = {
+  //     "Mobile": mobileNumberValue,
+  //     "appString": "checkdvn"
+  //   }
+  //   this.httpClient.post('https://helpful-range-403908.el.r.appspot.com/users/mobile_number_check', data).subscribe(
+  //     (response) => {
+  //       if (response) {
+  //         this.response_data = response;
+  //         console.log(this.response_data)
+  //         this.subscription= this.response_data.subscription || []
+  //         // console.log(this.subscription)
+  //         console.log('Type of subscription:', typeof this.subscription);
+  //         // this.subscription.push(this.response_data.subscription);
+  //         // this.subscription = response.subscription;
 
-        }
-        // Handle the server's response
+  //       }
+  //       // Handle the server's response
 
-      },
-      (error) => {
-        // Handle any errors
-      }
-    );
-    // this.subscription =  this.respnse_data.subscription
-
-
+  //     },
+  //     (error) => {
+  //       // Handle any errors
+  //     }
+  //   );
+  //   // this.subscription =  this.respnse_data.subscription
 
 
-    // Add your authentication logic here
-  }
+
+
+  //   // Add your authentication logic here
+  // }
   getSubscriptionDetail(){
     this.httpClient.get('https://helpful-range-403908.el.r.appspot.com/subscription-list/').subscribe(
       (response) => {
