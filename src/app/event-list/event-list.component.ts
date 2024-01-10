@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventListService } from '../Services/event-list.service';
 import { AppComponent } from '../app.component';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { UsersDataService } from '../Services/users-data.service';
 
 @Component({
   selector: 'app-event-list',
@@ -45,6 +46,9 @@ export class EventListComponent {
 
         console.log("Event List Page");
         this.eventListService.eventList();
+        // this.listOfEvent = this.userDataService.event_list;
+        // console.log(this.userDataService.event_list)
+        // this.eventData = true;
         this.isLoading = false;
         this.eventListService.eventList$.subscribe((eventList) => {
           this.listOfEvent = eventList;
@@ -53,6 +57,7 @@ export class EventListComponent {
           this.eventData = event;
         });
       } else {
+        // this.eventData = false;
         this.downloadFiles(this.productId);
       }
     });

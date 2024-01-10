@@ -59,7 +59,7 @@ export class CreateEventComponent {
 
       this.httpClient
         .post(
-          'https://helpful-range-403908.el.r.appspot.com/Eventdetails',
+          this.app_component.base_url+'Eventdetails',
           data,
           requestOptions
         )

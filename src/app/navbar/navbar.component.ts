@@ -56,6 +56,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.isAuthenticated = false;
     localStorage.removeItem('authToken');
+    localStorage.removeItem('Mobile_Number');
     this.router.navigate(['/']);
   }
 
