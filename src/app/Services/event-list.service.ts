@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class EventListService {
 
   event: any;
   event_list: any[] = [];
-  constructor(private route: ActivatedRoute, private httpClient: HttpClient,private appComponent:AppComponent) {
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient) {
     // this.eventList()
     // this.getEventList
   }
@@ -27,7 +26,7 @@ export class EventListService {
     const requestOptions = GetHeaders();
     this.httpClient
       .get(
-        this.appComponent.base_url+'getUserEvents/',
+        'http://localhost:8000/getUserEvents/',
         requestOptions
       )
       .subscribe(

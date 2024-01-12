@@ -74,7 +74,7 @@ export class RegisterationComponent {
     console.log(" response data : ", this.response_data)
     if (this.otp && this.otp != '') {
       if (this.otp == this.response_data.otp) {
-        this.userDataService.setUserData = this.response_data;
+        // this.userDataService.setUserData = this.response_data;
         alert('congratulations');
         localStorage.setItem('authToken', this.response_data.auth_token);
         localStorage.setItem('Mobile_Number', this.response_data.mobile);
