@@ -11,17 +11,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToFeature()">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="commonScroller.goToFeatures()">
                                 Features
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToPricing()">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="commonScroller.goToPricing()">
                                 Pricing
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link nav-content__list-link" (click)="goDownToCustomer()">
+                            <a href="#" class="nav-link nav-content__list-link" (click)="commonScroller.goToCustomer()">
                                 Customers
                             </a>
                         </li>
@@ -41,9 +41,15 @@
     <app-customer-review></app-customer-review>
     <app-footer></app-footer>
 </div>
-<div class="container navbar-content" *ngIf="isAuthenticated">
+<div class="navbar-content" *ngIf="isAuthenticated">
+    <app-side-bar></app-side-bar>
+
     <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
+            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                <fa-icon class="fa-solid fa-bars" [icon]="faBars"></fa-icon>
+            </button>
             <a routerLink="/admin/dashboard/event_list" class="navbar-brand">{{title}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -57,15 +63,20 @@
                             Pricing
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link nav-content__list-link" routerLink="/admin/dashboard/pricing">
-                            User Name
+                    <!-- <li class="nav-item">
+                        <p class="nav-link nav-content__list-link">
+                            
+                        </p>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <fa-icon class="fa-regular fa-circle-user" [icon]="faCircleUser"></fa-icon>
+                            <p id="user_name">UserName </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a routerLink="/" class="nav-link nav-content__list-link" (click)="logout()">
-                            <fa-icon class="fa-regular fa-user" [icon]="faUser"></fa-icon> Logout
-                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/" (click)="logout()">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

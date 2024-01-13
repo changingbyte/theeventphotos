@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { UsersDataService } from '../Services/users-data.service';
+import { AuthenticationService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-registeration',
@@ -16,7 +17,10 @@ export class RegisterationComponent {
   loginForm: FormGroup;
   registrationForm: FormGroup
 
-  constructor(private httpClient: HttpClient, private router: Router, private formBuilder: FormBuilder, private appComponent: AppComponent, private userDataService : UsersDataService) {
+  constructor(private httpClient: HttpClient, private router: Router, private formBuilder: FormBuilder,
+    private appComponent: AppComponent, private userDataService: UsersDataService,
+    private authService: AuthenticationService) {
+
     this.loginForm = this.formBuilder.group({
       mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]]
     });
@@ -25,7 +29,9 @@ export class RegisterationComponent {
       email: ['', [Validators.required, Validators.email]],
       userName: ['', Validators.required]
     });
+
   }
+  isAuthenticated = this.authService.isLoggedIn
   isRightPanelActive: boolean = false;
   // email: string = "";
   mobileNumber: string = '';
@@ -79,6 +85,8 @@ export class RegisterationComponent {
         localStorage.setItem('authToken', this.response_data.auth_token);
         localStorage.setItem('Mobile_Number', this.response_data.mobile);
         this.router.navigate(['admin/dashboard/event_list']);
+      } else if (this.otp.length < 6) {
+        alert('please enter 6 digit otp')
       } else {
         alert('please enter correct otp');
       }
