@@ -14,7 +14,7 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class EventListComponent {
   filterWithTag(tag: string): void {
-    console.log('Selected Tag:', tag);
+    // console.log('Selected Tag:', tag);
     // Add your logic to filter with the selected tag
     this.filtered_images = this.image_list.filter(image => image.tag === tag);
   }
@@ -47,7 +47,6 @@ export class EventListComponent {
       this.productId = params['event_id'] || null; // Access the 'id' route parameter
       if (this.route.snapshot.url.length == 1) {
 
-        console.log("Event List Page");
         this.eventListService.eventList();
         // this.listOfEvent = this.userDataService.event_list;
         // console.log(this.userDataService.event_list)
@@ -102,7 +101,6 @@ export class EventListComponent {
     for (let i = 0; i < this.filtered_images.length; i++) {
       const index = this.filtered_images.at(i)
       const imageUrl = index.image_url
-      console.log(imageUrl)
       const caption = 'Image ' + i + ' caption here';
       const src = imageUrl
       const thumb = imageUrl
