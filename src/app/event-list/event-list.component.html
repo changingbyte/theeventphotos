@@ -11,7 +11,7 @@
       <div class="tags-container d-flex align-items-center justify-content-start">
         <div *ngFor="let tag of tag_list">
           <button class="btn btn-outline-primary ms-2" (click)="filterWithTag(tag)">{{tag}}</button>
-        </div> 
+        </div>
         <!-- <a *ngFor="let tag of tag_list" class="tag-card-button mx-2">{{
           tag
           }}</a> -->
@@ -26,15 +26,22 @@
       <app-whatsapp-share-button [phoneNumber]="mobileNumber" [message]="getMessageLink()"></app-whatsapp-share-button>
     </div>
   </div>
+
   <div class="row mt-3" *ngIf="image_list">
-    <div *ngFor="let e of filtered_images" class="col-md-3">
+    <!-- <div *ngFor="let e of filtered_images" class="col-md-3">
       <div class="card image-card mb-3">
         <a href="{{ e.image_url }}">
           <img src="{{ e.image_url }}" alt="Event Image" class="card-img" />
         </a>
       </div>
+    </div> -->
+    <div *ngFor="let e of filtered_images; let i=index" class="col-md-3">
+      <div class="card image-card mb-3">
+        <img width="100" [src]="e.image_url" class="card-img" (click)="open(i)" />
+      </div>
     </div>
   </div>
+
   <!-- <div class="row mt-3" *ngIf="eventData">
     <h1>Event List</h1>
     <table class="table mb-0 bg-white" *ngIf="listOfEvent">
@@ -82,6 +89,7 @@
       </tbody>
     </table>
   </div> -->
+
   <!-- Your existing component template -->
 
   <div class="row mt-3" *ngIf="eventData">
@@ -98,7 +106,6 @@
               <img *ngIf="!e.image || !e.image.image_url" src="../../assets/img/whatsapp-logo.png" alt="Default Image"
                 class="img-fluid" />
             </div>
-
             <!-- Details Section -->
             <div class="col-9 details_section">
               <h4 class="card-title event-id">
@@ -130,5 +137,4 @@
       <!-- Add more cards for each event -->
     </div>
   </div>
-
 </div>

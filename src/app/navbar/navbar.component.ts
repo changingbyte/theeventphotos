@@ -1,7 +1,8 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit, VERSION } from '@angular/core';
 import { Router } from '@angular/router';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCircleUser, faBars } from '@fortawesome/free-solid-svg-icons';
+import { CommonScrollingService } from '../Services/common-scrolling.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +11,12 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
   faUser = faUser
+  faCircleUser = faCircleUser
+  faBars = faBars
 
   name = "Angular " + VERSION.major;
 
-  constructor(private scroller: ViewportScroller, private router: Router) { }
+  constructor(private scroller: ViewportScroller, private router: Router, public commonScroller: CommonScrollingService) { }
   ngOnInit() {
     if (localStorage.getItem('authToken')) {
       this.isAuthenticated = true;
@@ -22,29 +25,6 @@ export class NavbarComponent implements OnInit {
   }
 
   title = 'FotoFiesta';
-
-  goDownToFeature() {
-    console.log("Hello")
-    const element = document.getElementById("features_id");
-    console.log(element)
-    if (element) {
-      console.log("Hello world")
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest"
-      });
-    }
-  }
-
-  goDownToPricing() {
-    this.scroller.scrollToAnchor("pricing_id");
-  }
-
-  goDownToCustomer() {
-    this.scroller.scrollToAnchor("customer_id");
-  }
-
   isAuthenticated: boolean = false;
 
   login() {

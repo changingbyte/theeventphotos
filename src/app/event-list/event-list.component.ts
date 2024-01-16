@@ -5,6 +5,7 @@ import { EventListService } from '../Services/event-list.service';
 import { AppComponent } from '../app.component';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { UsersDataService } from '../Services/users-data.service';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-event-list',
@@ -13,15 +14,17 @@ import { UsersDataService } from '../Services/users-data.service';
 })
 export class EventListComponent {
   filterWithTag(tag: string): void {
-    console.log('Selected Tag:', tag);
+    // console.log('Selected Tag:', tag);
     // Add your logic to filter with the selected tag
     this.filtered_images = this.image_list.filter(image => image.tag === tag);
   }
 
   faUsers = faUsers
+  _albums: any = [];
   constructor(
     private route: ActivatedRoute, private router: Router,
-    private httpClient: HttpClient, private eventListService: EventListService, private app_component: AppComponent
+    private httpClient: HttpClient, private eventListService: EventListService,
+    private app_component: AppComponent, private _lightbox: Lightbox
   ) { }
 
   productId: any;
@@ -44,7 +47,6 @@ export class EventListComponent {
       this.productId = params['event_id'] || null; // Access the 'id' route parameter
       if (this.route.snapshot.url.length == 1) {
 
-        console.log("Event List Page");
         this.eventListService.eventList();
         // this.listOfEvent = this.userDataService.event_list;
         // console.log(this.userDataService.event_list)
@@ -82,7 +84,7 @@ export class EventListComponent {
             this.tag_list = this.image.tags_list;
             this.isLoading = false;
             this.filtered_images = [...this.image_list];
-            
+            this.lightbox()
           }
           // Handle the server's response
         },
@@ -90,6 +92,33 @@ export class EventListComponent {
           // Handle any errors
         }
       );
+  }
+
+  // Light Box Code for images
+
+  lightbox() {
+    console.log(this.filtered_images.length)
+    for (let i = 0; i < this.filtered_images.length; i++) {
+      const index = this.filtered_images.at(i)
+      const imageUrl = index.image_url
+      const caption = 'Image ' + i + ' caption here';
+      const src = imageUrl
+      const thumb = imageUrl
+      const album = {
+        src: src,
+        thumb: thumb
+      };
+
+      this._albums.push(album);
+    }
+  }
+
+  open(index: number): void {
+    this._lightbox.open(this._albums, index);
+  }
+
+  close(): void {
+    this._lightbox.close();
   }
 
   convertEpochToDateTime(epochTimestamp: number): string {

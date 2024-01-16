@@ -1,4 +1,4 @@
-<div class="register">
+<div class="register" *ngIf="!isAuthenticated">
     <div class="container" id="container" [class.right-panel-active]="isRightPanelActive">
         <!-- Your HTML content here -->
         <!-- <div class="container" id="container"> -->
@@ -12,9 +12,9 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div> -->
                 <!-- <span>or use your email for registration</span> -->
-                <input type="text"  formControlName="userName" name="name" placeholder="Name" />
-                <input type="email" formControlName="email"name="email" placeholder="Email" />
-                <input type="tle" formControlName="mobileNumber" name = "phone" placeholder="Phone number"/>
+                <input type="text" formControlName="userName" name="name" placeholder="Name" />
+                <input type="email" formControlName="email" name="email" placeholder="Email" />
+                <input type="tle" formControlName="mobileNumber" name="phone" placeholder="Phone number" />
                 <!-- <input type="password" name="password" placeholder="Password" />
                 <input type="text" name="Confirm Password" placeholder="Confirm Password" /> -->
                 <button type="submit">Request OTP</button>
@@ -73,4 +73,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="isAuthenticated">
+    <app-dashboard></app-dashboard>
 </div>
