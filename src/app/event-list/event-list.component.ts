@@ -106,7 +106,6 @@ export class EventListComponent {
       const thumb = imageUrl
       const album = {
         src: src,
-        caption: caption,
         thumb: thumb
       };
 

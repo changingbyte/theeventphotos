@@ -7,6 +7,12 @@
     background-color: white !important;
 }
 
+/* navbar color after user logged in */
+nav.navbar.navbar-expand-lg.after-loggedIn {
+    background-color: aliceblue;
+    padding: 8px 0px 25px 0px;
+}
+
 /* side bar */
 
 button.btn.btn-light {
