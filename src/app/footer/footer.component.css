@@ -1,0 +1,143 @@
+.footer {
+    background: #2B2C2E;
+}
+
+.footer-content__left a {
+    font-size: 27px;
+    color: #E6EAED;
+    font-family: var(--RSR);
+    padding-top: 15px;
+    display: flex;
+}
+
+a#sign_up {
+    font-size: 20px;
+}
+
+.footer-content__left p {
+    font-size: 15px;
+    line-height: 22px;
+    color: #939596;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.social-network a {
+    color: white;
+    font-size: 20px;
+    padding-top: 0px !important;
+}
+
+.social-network {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.footer-content__right {
+    display: flex;
+    gap: 40px;
+    margin-top: 41px;
+    margin-bottom: 50px;
+}
+
+.footer-content__right h3 {
+    font-family: var(--RCR);
+    color: #E4E8EB;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 11px;
+}
+
+.footer-content__right a {
+    color: #939596;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.legal-link {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 0px;
+}
+
+.company-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 0px;
+}
+
+.after-footer {
+    background: #1C1D1F;
+}
+
+.after-footer__content p {
+    font-size: 13px;
+    color: #939596;
+    font-weight: 400;
+    padding: 19px 0;
+    margin-bottom: 0px !important;
+}
+
+@media (max-width: 540px) {
+    .footer-content {
+        gap: 50px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .after-footer__content p {
+        text-align: center;
+    }
+
+    .footer-content__left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content__left:nth-child(1) a {
+        margin-top: 50px;
+    }
+
+    .footer-content__left p {
+        margin-top: 15px;
+        margin-bottom: -30px;
+    }
+
+    .company-list {
+        gap: 20px;
+    }
+
+    .product-list {
+        gap: 20px;
+    }
+
+    .legal-link {
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 330px) {
+    .footer-content__right {
+        flex-direction: column;
+        margin-left: 25px;
+        gap: 80px;
+    }
+}

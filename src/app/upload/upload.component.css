@@ -1,0 +1,20 @@
+.form-group {
+    margin: 20px 0px 20px 0px;
+    font-size: larger;
+}
+
+label { 
+    margin: 0px 0px 5px 0px
+}
+
+input#file { 
+    margin: 10px 0px 10px 0px
+}
+
+/* Dorpdown css */
+
+.custom-dropdown {
+    position: relative;
+  }
+  
+ 

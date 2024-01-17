@@ -1,0 +1,21 @@
+/* ul.navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll{
+    padding-left: 50px;
+} */
+
+nav.navbar.navbar-expand-lg.dashboard {
+    background-color: #b4facd;
+    height: 75px;
+}
+
+/* #b2fae6 */
+
+h2#h2-dashboard {
+    font-size: 35px;
+    margin: 0px;
+}
+
+nav.navbar.navbar-expand-lg.dashboard {
+    padding: 20px;
+}
+
+/* background-color: #b8fbd0; */

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faLaptopCode,faCloudArrowDown,faTableColumns,faNetworkWired,faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faLaptopCode,faCloudArrowDown,faTableColumns,faNetworkWired,faChartLine,faShieldHalved,faPeopleRoof } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-features',
@@ -12,5 +12,7 @@ export class FeaturesComponent {
   faTableColumns=faTableColumns
   faNetworkWired=faNetworkWired
   faChartLine=faChartLine
+  faShieldHalved = faShieldHalved
+  faPeopleRoof =faPeopleRoof
   
 }

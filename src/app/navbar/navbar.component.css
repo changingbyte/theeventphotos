@@ -7,6 +7,40 @@
     background-color: white !important;
 }
 
+/* navbar color after user logged in */
+nav.navbar.navbar-expand-lg.after-loggedIn {
+    background-color: aliceblue;
+    padding: 8px 0px 25px 0px;
+}
+
+/* side bar */
+
+button.btn.btn-light {
+    margin-right: 20px;
+}
+
+/* side bar end */
+
+a.nav-link.dropdown-toggle {
+    display: inline-flex;
+}
+
+::after {
+    margin-top: 10px;
+}
+
+p#user_name {
+    /* padding: 4px; */
+    margin: 1px 6px 0px 6px;
+}
+
+fa-icon.ng-fa-icon.fa-regular.fa-circle-user {
+    font-size: 20px;
+    padding-top: 0px;
+    margin: 4px;
+    margin-top: 0px;
+}
+
 /* .container {
     margin: 0 auto;
     padding: 0 15px;

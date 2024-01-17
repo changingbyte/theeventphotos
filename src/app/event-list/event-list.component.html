@@ -1,0 +1,140 @@
+<app-dashboard></app-dashboard>
+
+<div class="loader-container" *ngIf="isLoading">
+  <div class="loader"></div>
+</div>
+
+<div class="container">
+  <div class="row mt-2" *ngIf="image">
+    <!-- <button (click)="printImageList()">printImageList</button> -->
+    <div class="col-md-8">
+      <div class="tags-container d-flex align-items-center justify-content-start">
+        <div *ngFor="let tag of tag_list">
+          <button class="btn btn-outline-primary ms-2" (click)="filterWithTag(tag)">{{tag}}</button>
+        </div>
+        <!-- <a *ngFor="let tag of tag_list" class="tag-card-button mx-2">{{
+          tag
+          }}</a> -->
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-outline-primary" (click)="navigateToUsersEventList()">
+        Event Guests <fa-icon class="fa-solid fa-users" [icon]="faUsers"></fa-icon>
+      </button>
+    </div>
+    <div class="col-md-2">
+      <app-whatsapp-share-button [phoneNumber]="mobileNumber" [message]="getMessageLink()"></app-whatsapp-share-button>
+    </div>
+  </div>
+
+  <div class="row mt-3" *ngIf="image_list">
+    <!-- <div *ngFor="let e of filtered_images" class="col-md-3">
+      <div class="card image-card mb-3">
+        <a href="{{ e.image_url }}">
+          <img src="{{ e.image_url }}" alt="Event Image" class="card-img" />
+        </a>
+      </div>
+    </div> -->
+    <div *ngFor="let e of filtered_images; let i=index" class="col-md-3">
+      <div class="card image-card mb-3">
+        <img width="100" [src]="e.image_url" class="card-img" (click)="open(i)" />
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row mt-3" *ngIf="eventData">
+    <h1>Event List</h1>
+    <table class="table mb-0 bg-white" *ngIf="listOfEvent">
+      <thead class="bg-light">
+        <tr>
+          <th class="px-10 align-top">EventId</th>
+          <th class="px-10 align-top">Images</th>
+          <th class="px-10 align-top">Status</th>
+          <th class="px-10 align-top">Last Updated Time</th>
+          <th class="px-10 align-top">Albums</th>
+          <th class="px-10 align-top">Published</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let e of listOfEvent">
+        <tr>
+          <td class="px-10 align-middle">
+            <div class="d-flex align-items-start">
+              <div>
+                <a [routerLink]="['/admin/dashboard/event_list', e.event_id]">
+                  <p class="fw-bold mb-1">{{ e.event_id }}</p>
+                </a>
+              </div>
+            </div>
+          </td>
+          <td class="px-10 align-middle">
+            <p class="fw-normal mb-1">{{ e.images }}</p>
+          </td>
+          <td class="px-10 align-middle">
+            <p class="fw-normal mb-1">{{ e.status }}</p>
+          </td>
+          <td class="px-10 align-middle">
+            {{ convertEpochToDateTime(e.last_updated_time) }}
+          </td>
+          <td class="px-10 align-middle">
+            <div>
+              <a [routerLink]="['/admin/album', e.event_id]">
+                <p class="fw-bold mb-1">Album</p>
+              </a>
+            </div>
+          </td>
+          <td class="px-10 align-middle" style="width: 100%">
+            <i class="fas fa-check"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+  <!-- Your existing component template -->
+
+  <div class="row mt-3" *ngIf="eventData">
+    <h1 class="text-center mb-4">Your Events</h1>
+
+    <div class="card-columns">
+      <div class="card mb-3 shadow border" *ngFor="let e of listOfEvent">
+        <div class="card-body">
+          <!-- Image and Details Section -->
+          <div class="row">
+            <!-- Image Section -->
+            <div class="col-3">
+              <img *ngIf="e.image && e.image.image_url" [src]="e.image.image_url" alt="Event Image" class="img-fluid" />
+              <img *ngIf="!e.image || !e.image.image_url" src="../../assets/img/whatsapp-logo.png" alt="Default Image"
+                class="img-fluid" />
+            </div>
+            <!-- Details Section -->
+            <div class="col-9 details_section">
+              <h4 class="card-title event-id">
+                <a [routerLink]="['/admin/dashboard/event_list', e.event_id]">{{ e.event_id }}</a>
+              </h4>
+
+              <p class="card-text">Last Updated Time: {{ convertEpochToDateTime(e.last_updated_time) }}</p>
+
+              <!-- Blank row for spacing -->
+              <div class="mt-1"></div>
+
+              <p class="card-text">Status: {{ e.status }}</p>
+              <p class="card-text">Location: {{ e.location }}</p>
+              <p class="card-text">Event Date:{{e.date}}</p>
+
+              <!-- Add more details as needed -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Commented out "Published" section -->
+        <!-- <div class="card-footer">
+        <small class="text-muted">
+          <i class="fas fa-check"></i> Published
+        </small>
+      </div> -->
+      </div>
+
+      <!-- Add more cards for each event -->
+    </div>
+  </div>
+</div>

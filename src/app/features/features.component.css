@@ -1,7 +1,7 @@
 /* Features  */
 
 .sync h2 {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-bottom: 10px;
     font-size: 29px;
     text-align: center;
@@ -81,7 +81,7 @@
 }
 
 .mobile-app__content  {
-    font-size: 24px;
+    font-size: 19px;
     color: black;
 }
 
@@ -129,7 +129,7 @@
     margin-top: 0;
 }
 
-/* @media (max-width: 1040px) {
+@media (max-width: 1040px) {
     .header-content img {
         width: 40%;
     }
@@ -141,35 +141,9 @@
     .header-content__left p {
         font-size: 16px;
     }
-
-    .mark-content {
-        flex-wrap: wrap;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .mark-content img {
-        width: 15%;
-    }
 }
 
 @media (max-width: 900px) {
-    .header-content {
-        justify-content: flex-start;
-        gap: 50px;
-    }
-
-    .pricing-content {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .in-the-press__content-bottom {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     .sync h2 {
         font-size: 24px;
     }
@@ -225,77 +199,15 @@
     .fa-table-columns {
         margin-top: 70px;
     }
-
-    .plans-pricing__content h2 {
-        font-size: 24px;
-    }
-
-    .plans-pricing__content p {
-        font-size: 16px;
-    }
-
-    .about-us h2 {
-        font-size: 24px;
-    }
-
-    .about-us p {
-        font-size: 17px;
-    }
 }
 
 @media (max-width: 800px) {
-    .header-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .header-content__left h2 {
-        margin-top: 300px;
-    }
-
-    .header-content__left {
-        text-align: center;
-    }
-
-    .header-content__left-btn {
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .header-content img {
-        margin-bottom: 250px;
-    }
-
-    .header-content__left p {
-        margin-bottom: 20px;
-        margin-top: 15px;
-    }
-
     .sync p {
         width: 500px;
-    }
-
-    .about-us p {
-        width: 400px;
-        margin-top: 20px;
-    }
-
-    .mark-content img {
-        display: flex;
-        flex-wrap: wrap;
     }
 }
 
 @media (max-width: 540px) {
-    .header-content img {
-        display: none;
-    }
-
-    .header-content__left h2 {
-        margin-top: -60px;
-    }
-
     .web-application img {
         width: 70%;
     }
@@ -307,115 +219,10 @@
     .mobile-app__content p {
         width: 300px;
     }
-
-    .about-us p {
-        width: 300px;
-    }
-
-    .footer-content {
-        gap: 50px;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .after-footer__content p {
-        text-align: center;
-    }
-
-    .footer-content__left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-content__left:nth-child(1) a {
-        margin-top: 50px;
-    }
-
-    .footer-content__left p {
-        margin-top: 15px;
-        margin-bottom: -30px;
-    }
-
-    .footer-content__right {
-        margin-left: 40px;
-    }
-
-    .company-list {
-        gap: 20px;
-    }
-
-    .product-list {
-        gap: 20px;
-    }
-
-    .legal-link {
-        gap: 20px;
-    }
-
-    .nav-content__list {
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 100%;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-        gap: 60px;
-        background: linear-gradient(90deg, rgba(129,185,129,0.9444152661064426) 3%, rgba(141,215,109,0.9051995798319328) 100%);
-        transition: 800ms;
-    }
-    .nav-content__list-link{
-        font-size: 30px !important;
-    }
-    .burger{
-        display: block;
-        color: black;
-        font-size: 40px;
-        position: absolute;
-        right: 5%;
-        z-index: 999;
-    }
-    .burger:hover ~ .nav-content__list{
-        left: 0;
-    }
-    .in-the-press__content h2{
-        margin-bottom: 30px;
-        margin-left: 25px;
-    }
-    .pricing-content{
-        gap: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-content__left h2{
-        width: 250px;
-        margin: auto;
-        margin-top: -50px;
-    }
-    .header-content__left p{
-        width: 300px;
-    }
 }
 
 @media (max-width: 330px) {
-    .footer-content__right{
-        flex-direction: column;
-        margin-left: 25px;
-        gap: 80px;
-    }
-    .about-us h2{
-        font-size: 20px;
-    }
-    .about-us p{
-        font-size: 15px;
-        width: 200px;
-    }
     .mobile-app__content p{
         width: 200px;
     }
-} */
+} 

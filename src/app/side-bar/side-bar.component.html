@@ -1,0 +1,21 @@
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+  aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions">
+      <fa-icon class="fa-solid fa-bars" [icon]="faBars"></fa-icon>
+    </button>
+    <a class="navbar-brand">{{ appcomponent.title }}</a>
+  </div>
+  <div class="offcanvas-body">
+    <a href="/admin/dashboard/create_event" class="sidebar-link">
+      <fa-icon class="fa-solid fa-table-columns one" [icon]="faPlus"></fa-icon>
+      Create Event</a>
+    <a href="admin/dashboard/event_list" class="sidebar-link">
+      <fa-icon class="fa-solid fa-list one" [icon]="faList"></fa-icon>
+      Events</a>
+    <a href="admin/dashboard/upload_image" class="sidebar-link">
+      <fa-icon class="fa-solid fa-upload one" [icon]="faUpload"></fa-icon>
+      Upload</a>
+  </div>
+</div>

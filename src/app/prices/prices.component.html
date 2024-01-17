@@ -1,0 +1,52 @@
+<div *ngIf="isAuthenticated">
+    <app-navbar></app-navbar>
+
+    <!-- <div *ngIf="subscription">
+        <p>Subscription Name: {{ subscription.name }}</p>
+      
+    </div> -->
+
+</div>
+
+<section class="plans-pricing" id="pricing_id">
+    <div class="container plans-pricing__content">
+        <h2>Plans & Pricing</h2>
+        <br>
+        <!-- <p>No credit card required. No risk,
+            30-day money back guarantee</p> -->
+
+        <div class="pricing-content">
+            <div *ngFor="let subscription of subscriptionList">
+                <div class="pricing-box">
+                    <h3>{{subscription.name}}</h3>
+                    <div class="pricing-box__span">
+                        <span>Number of Events: </span>
+                        <span>{{subscription.event_limit}}</span>
+                    </div>
+                    <div class="pricing-box__span">
+                        <span>Images per event: </span>
+                        <span>{{subscription.images_per_event_limit}}</span>
+                    </div>
+                    <div class="pricing-box__span after-content">
+                        <span>Price: </span>
+                        <span>{{subscription.price}}</span>
+                    </div>
+                    <div class="pricing-box__content-for-after"></div>
+                    <div class="pricing-box__span-bottom">
+                        <span>On Call Support</span>
+                        <span>IOS and Android App</span>
+                        <span>Professional Dashboard</span>
+                        <span>Futureistic Features</span>
+                    </div>
+                    <a href="" class="btn">Choose Plan</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="contact-us">
+            <span>Need more Information? Please </span>
+            <a href="">contact us.</a>
+        </div>
+    </div>
+</section>
