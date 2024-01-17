@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EventListComponent } from '../event-list/event-list.component';
+import { EventListService } from '../Services/event-list.service';
+import { UsersDataService } from '../Services/users-data.service';
+import { combineLatest, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-create-event',
@@ -14,15 +17,16 @@ import { EventListComponent } from '../event-list/event-list.component';
 export class CreateEventComponent {
 
   create_event = false;
-  create_event_success=false;
-  
+  create_event_success = false;
+
   eventForm: FormGroup;
   constructor(
     private route: ActivatedRoute,
     private httpClient: HttpClient,
     private formBuilder: FormBuilder,
-    private app_component: AppComponent
-    // private eventlist: EventListComponent
+    private app_component: AppComponent,
+    private eventListService: EventListService,
+    private userDataService: UsersDataService,
   ) {
     this.eventForm = this.formBuilder.group({
       eventName: ['', Validators.required],
@@ -31,14 +35,33 @@ export class CreateEventComponent {
       eventHashtag: ['', Validators.required],
     });
   }
-
-  ngOnInit(): void {      
-        console.log("create event page");
+  noOfEvents: any
+  eventLimit: any
+  ngOnInit(): void {
+    console.log("create event page");
+  
+    // Combine the observables to wait for both to emit values
+    this.eventListService.eventList();
+    this.userDataService.userData();
+    combineLatest([this.eventListService.eventList$, this.userDataService.activeSubscription$]).subscribe(([eventList, activeSubscription]) => {
+      console.log('el',eventList)
+      this.noOfEvents = eventList.length;
+  
+      // Check if the array is not empty
+      if (activeSubscription.length > 0) {
+        this.eventLimit = activeSubscription[0].event_limit;
+        console.log("eventLimit:", this.eventLimit);
+      }
+  
+      console.log("eventLimit:", this.eventLimit);
+      console.log("noOfEvents:", this.noOfEvents);
+  
+      if (this.eventLimit !== undefined && this.noOfEvents !== undefined && this.eventLimit > this.noOfEvents) {
         this.create_event = true;
-
-      // You can now use this.productId in your component
+        console.log("create_event set to true");
+      }
+    });
   }
-
   onSubmit() {
     if (this.eventForm.valid) {
       // Handle form submission here
@@ -59,7 +82,7 @@ export class CreateEventComponent {
 
       this.httpClient
         .post(
-          this.app_component.base_url+'Eventdetails',
+          this.app_component.base_url + 'Eventdetails',
           data,
           requestOptions
         )
@@ -74,7 +97,7 @@ export class CreateEventComponent {
               if (status_code == 200) {
                 // alert(response_data.data);
                 // console.log(response)
-                this.create_event_success=true;
+                this.create_event_success = true;
                 this.eventForm.reset();
               }
             }

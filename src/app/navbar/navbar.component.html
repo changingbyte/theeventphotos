@@ -50,7 +50,13 @@
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                 <fa-icon class="fa-solid fa-bars" [icon]="faBars"></fa-icon>
             </button>
-            <a routerLink="/admin/dashboard/event_list" class="navbar-brand">{{title}}</a>
+            <div>
+                <a routerLink="/admin/dashboard/event_list" class="navbar-brand">{{title}}</a>
+                <p>{{subscriptionName}}</p>
+
+
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
