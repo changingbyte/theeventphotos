@@ -62,6 +62,7 @@ export class RegisterationComponent {
       "appString": "checkdvn",
       "userName": this.registrationForm.get('userName')?.value,
       "email": this.registrationForm.get('email')?.value,
+      "app_type":"web",
     }
     console.log(data)
     this.showOTPField = true;
