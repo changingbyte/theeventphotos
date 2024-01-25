@@ -8,13 +8,13 @@
     <a class="navbar-brand">{{ appcomponent.title }}</a>
   </div>
   <div class="offcanvas-body">
-    <a href="/admin/dashboard/create_event" class="sidebar-link">
+    <a routerLink="/admin/dashboard/create_event" class="sidebar-link">
       <fa-icon class="fa-solid fa-table-columns one" [icon]="faPlus"></fa-icon>
       Create Event</a>
-    <a href="admin/dashboard/event_list" class="sidebar-link">
+    <a routerLink="admin/dashboard/event_list" class="sidebar-link">
       <fa-icon class="fa-solid fa-list one" [icon]="faList"></fa-icon>
       Events</a>
-    <a href="admin/dashboard/upload_image" class="sidebar-link">
+    <a routerLink="admin/dashboard/upload_image" class="sidebar-link">
       <fa-icon class="fa-solid fa-upload one" [icon]="faUpload"></fa-icon>
       Upload</a>
   </div>
