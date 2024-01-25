@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FotoFiesta": {
+    "TheEventPhotos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "FotoFiesta:build:production"
+              "browserTarget": "TheEventPhotos:build:production"
             },
             "development": {
-              "browserTarget": "FotoFiesta:build:development"
+              "browserTarget": "TheEventPhotos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FotoFiesta:build"
+            "browserTarget": "TheEventPhotos:build"
           }
         },
         "test": {
@@ -102,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

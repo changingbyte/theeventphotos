@@ -32,7 +32,7 @@ export class UsersDataService {
     console.log(requestOptions)
     this.httpClient
       .get(
-        'http://localhost:8000/users/get-user-data/',
+        'https://helpful-range-403908.el.r.appspot.com/users/get-user-data/',
         requestOptions
       )
       .subscribe(

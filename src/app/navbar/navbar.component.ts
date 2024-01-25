@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  title = 'FotoFiesta';
+  title = 'TheEventPhotos';
   isAuthenticated: boolean = false;
 
 

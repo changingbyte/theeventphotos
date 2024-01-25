@@ -9,8 +9,8 @@ export class AppComponent {
 
   constructor (){}
 
-  title = 'FotoFiesta';
+  title = 'TheEventPhotos';
   APP_NAME = 'PHOTOPHACTORYSTUDIOS';
-  base_url = 'http://localhost:8000/'
   // base_url = 'https://helpful-range-403908.el.r.appspot.com/'
+  base_url = 'https://helpful-range-403908.el.r.appspot.com/'
 }

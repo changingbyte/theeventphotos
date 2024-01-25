@@ -26,7 +26,7 @@ export class EventListService {
     const requestOptions = GetHeaders();
     this.httpClient
       .get(
-        'http://localhost:8000/getUserEvents/',
+        'https://helpful-range-403908.el.r.appspot.com/getUserEvents/',
         requestOptions
       )
       .subscribe(
