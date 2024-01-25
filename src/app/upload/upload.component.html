@@ -1,3 +1,5 @@
+<!-- <p>upload works!</p> -->
+
 <app-dashboard></app-dashboard>
 
 <div class="container">
@@ -23,7 +25,7 @@
         <label for="eventId">Event ID</label>
         <select id="eventId" name="eventId" formControlName="eventId" class="form-control" [(ngModel)]="event_id"
           (change)="imageSubscription(event_id)">
-          <option value="Select Event ID" disabled selected>Select Event ID</option>
+          <option value="" >Select Event ID</option>
           <option *ngFor="let e of listOfEvent" [value]="e.event_id">{{ e.event_id }}</option>
         </select>
         <div *ngIf="uploadForm.get('eventId')!.hasError('required') && uploadForm.get('eventId')!.touched">
