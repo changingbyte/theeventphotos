@@ -1,11 +1,12 @@
 <app-dashboard></app-dashboard>
+<!-- <app-toast></app-toast> -->
 
 <div class="loader-container" *ngIf="isLoading">
   <div class="loader"></div>
 </div>
 
 <div class="container">
-  <div class="row mt-2" *ngIf="image">
+  <div class="row mt-4" *ngIf="image">
     <!-- <button (click)="printImageList()">printImageList</button> -->
     <div class="col-md-8">
       <div class="tags-container d-flex align-items-center justify-content-start">
@@ -30,7 +31,7 @@
   <div class="row mt-3" *ngIf="image_list">
     <!-- <div *ngFor="let e of filtered_images" class="col-md-3">
       <div class="card image-card mb-3">
-        <a routerLink="{{ e.image_url }}">
+        <a href="{{ e.image_url }}">
           <img src="{{ e.image_url }}" alt="Event Image" class="card-img" />
         </a>
       </div>
